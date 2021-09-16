@@ -42,7 +42,10 @@ jobs:
           resource-group: uis-demo
           dns-name-label: uis-demo-20210916
           image: eugeneromero/uis-demo-flask-app:latest
-          registry-username: ${{ secrets.DOCKER_USERNAME }}
-          registry-password: ${{ secrets.DOCKER_PASSWORD }}
           name: uis-demo
           location: 'norway east'
+          cpu: 1
+          memory: 1.5
+          os-type: linux
+          ports: 80
+
