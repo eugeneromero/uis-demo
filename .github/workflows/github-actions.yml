@@ -46,6 +46,6 @@ jobs:
           location: 'norway east'
           cpu: 1
           memory: 1.5
-          os-type: linux
+          os-type: Linux
           ports: 80
 
