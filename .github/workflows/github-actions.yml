@@ -30,3 +30,19 @@ jobs:
           tags: |
             eugeneromero/uis-demo-flask-app:${{ github.run_id }}
             eugeneromero/uis-demo-flask-app:latest
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Container Instances
+        uses: azure/aci-deploy@v1
+        with:
+          resource-group: uis-demo
+          dns-name-label: uis-demo-20210916
+          image: eugeneromero/uis-demo-flask-app:latest
+          registry-username: ${{ secrets.DOCKER_USERNAME }}
+          registry-password: ${{ secrets.DOCKER_PASSWORD }}
+          name: uis-demo
+          location: 'norway east'
